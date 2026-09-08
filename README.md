@@ -5,6 +5,7 @@ This repository is the control point for a reproducible OBS Studio setup on macO
 ## What this repo does
 
 - Installs the current stable OBS Studio release with Homebrew.
+- Installs Aitum Stream Suite for simultaneous Twitch + TikTok output.
 - Backs up OBS profiles, scene collections, settings, and user-installed plugins.
 - Restores an OBS configuration safely, creating a pre-restore backup first.
 - Keeps setup notes and future scene/profile configuration under version control.
@@ -13,6 +14,9 @@ This repository is the control point for a reproducible OBS Studio setup on macO
 
 - Platform: macOS
 - OBS: stable release
+- Multistream target: Twitch + TikTok simultaneously
+- Twitch layout: 16:9 landscape
+- TikTok layout: 9:16 portrait
 - OBS configuration directory: `~/Library/Application Support/obs-studio`
 - User plugin directory: `~/Library/Application Support/obs-studio/plugins`
 
@@ -25,9 +29,16 @@ git clone https://github.com/minimouny/OBS-Setup.git
 cd OBS-Setup
 chmod +x scripts/*.sh
 ./scripts/install_obs.sh
+./scripts/install_aitum_stream_suite.sh
 ```
 
 Then open OBS and allow the macOS permissions it needs for your use case, such as Screen & System Audio Recording, Camera, and Microphone.
+
+## Twitch + TikTok setup
+
+See [`docs/multistream-twitch-tiktok.md`](docs/multistream-twitch-tiktok.md) for the output architecture, recommended starting settings, scene design, and launch checklist.
+
+TikTok direct OBS streaming is account-dependent. If TikTok provides your account a Server URL and Stream Key, enter those only inside OBS/Aitum on your Mac. Never place stream keys in GitHub.
 
 ## Back up OBS
 
@@ -55,4 +66,4 @@ Do **not** commit the live OBS configuration directory or backup archives to Git
 
 ## Next configuration stage
 
-The repository is ready for the actual OBS production setup: scenes, sources, audio routing, recording/streaming output, hotkeys, and any required plugins. Those choices should be tailored to the intended OBS workflow and Mac hardware.
+The repository is ready for the actual production setup: scenes, sources, audio routing, recording settings, platform credentials, hotkeys, and any additional plugins required by the final workflow.
