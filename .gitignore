@@ -1,0 +1,10 @@
+# OBS backups may contain stream/account settings and should never be committed
+backups/*.tar.gz
+backups/*.tgz
+
+# macOS
+.DS_Store
+
+# Local scratch/config exports
+local/
+*.log
